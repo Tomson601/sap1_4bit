@@ -37,21 +37,38 @@ class ALU:
             result.reverse()
             return result, carry
 
-    def _load():
-        pass
-    
+    def _load_a(bus, a):
+        if type(bus) != "<class '__main__.BUS'>":
+            return("Data can be only loaded from the bus")
+        else:
+            return a
+
+    def _load_b(bus, b):
+        if type(bus) != "<class '__main__.BUS'>":
+            return("Data can be only loaded from the bus")
+        else:
+            return b
+
     def _out():
         pass
+
 
 class BUS:
     def __init__(self, bits=4):
         self.bits = bits
 
+    def _data(self, data):
+        pass
+
+    def _load(bus, data):
+        if type(bus) != "<class '__main__.BUS'>":
+            return("Data can be only loaded from the bus")
+        else:
+            return data
+
     def _out(self, data):
         pass
 
-    def _load(self, data):
-        pass
 
 class REGISTER:
     def __init__(self, bits=4):
@@ -60,8 +77,14 @@ class REGISTER:
     def _out(self, data_out):
         pass
 
-    def _load(self, data_in):
+    def _load(bus, data):
+        if type(bus) != "<class '__main__.BUS'>":
+            return("Data can be only loaded from the bus")
+
+    def _stored_data(self, data):
         pass
 
-    def _data(self, data):
-        pass
+bus = BUS()
+
+bus._load()
+# print(type(bus), type(bus2))
